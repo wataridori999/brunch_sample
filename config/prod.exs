@@ -69,10 +69,15 @@ config :brunch_sample, BrunchSampleWeb.Endpoint,
 # Configure your database
 config :brunch_sample, BrunchSample.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "brunch_sample_prod",
-  pool_size: 15
+ # username: "postgres",
+#  password: "postgres",
+#  database: "brunch_sample_prod",
+#  pool_size: 15
+
+  url: "${DATABASE_URL}",
+  database: "",
+  ssl: true,
+  pool_size: 1 # Free tier db only allows 1 connection
 
 config :brunch_sample, BrunchSampleWeb.Endpoint,
   http: [port: 4000],
